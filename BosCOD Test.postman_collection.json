@@ -1,0 +1,860 @@
+{
+	"info": {
+		"_postman_id": "5abbd3e2-aa2c-47ee-8955-1ad6d5f0ff0a",
+		"name": "BosCOD Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/auth/login",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/auth/refresh",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/auth/logout",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "test",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "test@example.com",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/auth/register",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contacts",
+			"item": [
+				{
+					"name": "All Contacts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/:user_id/contacts",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								":user_id",
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "cursor",
+									"value": "eyJjb250YWN0cy5pZCI6MjksIl9wb2ludHNUb05leHRJdGVtcyI6dHJ1ZX0",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "{{USER_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single Contact",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/:user_id/contacts/:contact_id",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								":user_id",
+								"contacts",
+								":contact_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "{{USER_ID}}"
+								},
+								{
+									"key": "contact_id",
+									"value": "31"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bank_id",
+									"value": "8",
+									"type": "default"
+								},
+								{
+									"key": "account_number",
+									"value": "8485747276",
+									"type": "default"
+								},
+								{
+									"key": "name",
+									"value": "Joko Wow",
+									"type": "default"
+								},
+								{
+									"key": "label",
+									"value": "Joko BCA Tabunganku",
+									"type": "default"
+								},
+								{
+									"key": "is_favorite",
+									"value": "1",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/:user_id/contacts",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								":user_id",
+								"contacts"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "{{USER_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Contact",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "bank_id",
+									"value": "8",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "account_number",
+									"value": "8485747276",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Joko Wow",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "label",
+									"value": "Joko BCA Tabunganku",
+									"type": "text"
+								},
+								{
+									"key": "is_favorite",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/:user_id/contacts/:contact_id",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								":user_id",
+								"contacts",
+								":contact_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "{{USER_ID}}"
+								},
+								{
+									"key": "contact_id",
+									"value": "31"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Contact",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/:user_id/contacts/:contact_id",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								":user_id",
+								"contacts",
+								":contact_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "{{USER_ID}}"
+								},
+								{
+									"key": "contact_id",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "All Transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/:user_id/transactions",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								":user_id",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "cursor",
+									"value": "eyJjb250YWN0cy5pZCI6MjksIl9wb2ludHNUb05leHRJdGVtcyI6dHJ1ZX0",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "{{USER_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single Transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/:user_id/transactions/:transaction_id",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								":user_id",
+								"transactions",
+								":transaction_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "{{USER_ID}}"
+								},
+								{
+									"key": "transaction_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transaction_date\": \"2023-01-29 21:00:00\",\r\n    \"total\": 20000,\r\n    \"detail\": [\r\n        {\r\n            \"bank_id\": 8,\r\n            \"account_number\": \"8485747276\",\r\n            \"admin_banks_bank_id\": 8,\r\n            \"admin_banks_account_number\": \"1382728963\",\r\n            \"amount\": 20000\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/:user_id/transactions",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								":user_id",
+								"transactions"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "{{USER_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Transaction Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"state\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASEURL}}/:user_id/transactions/:transaction_id",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								":user_id",
+								"transactions",
+								":transaction_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "{{USER_ID}}"
+								},
+								{
+									"key": "transaction_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bank Admin",
+			"item": [
+				{
+					"name": "All Bank Admin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/admin_banks",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"admin_banks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single Admin Bank",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/admin_banks/:admin_bank_id",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"admin_banks",
+								":admin_bank_id"
+							],
+							"variable": [
+								{
+									"key": "admin_bank_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Admin Bank",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bank_id",
+									"value": "8",
+									"type": "default"
+								},
+								{
+									"key": "account_number",
+									"value": "87283727312",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/admin_banks",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"admin_banks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Contact",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "bank_id",
+									"value": "8",
+									"type": "default"
+								},
+								{
+									"key": "account_number",
+									"value": "1382728963",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/admin_banks/:admin_bank_id",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"admin_banks",
+								":admin_bank_id"
+							],
+							"variable": [
+								{
+									"key": "admin_bank_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Contact",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/admin_banks/:admin_bank_id",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"admin_banks",
+								":admin_bank_id"
+							],
+							"variable": [
+								{
+									"key": "admin_bank_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transfer Mapping",
+			"item": [
+				{
+					"name": "All Transfer Mapping",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/transfer_mapping",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"transfer_mapping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single Transfer Mapping",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/transfer_mapping/:transfer_mapping_id",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"transfer_mapping",
+								":transfer_mapping_id"
+							],
+							"variable": [
+								{
+									"key": "transfer_mapping_id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Admin Bank",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bank_id",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "admin_bank_id",
+									"value": "1",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/transfer_mapping",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"transfer_mapping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Contact",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "bank_id",
+									"value": "8",
+									"type": "default"
+								},
+								{
+									"key": "account_number",
+									"value": "1382728963",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASEURL}}/admin_banks/:admin_bank_id",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"admin_banks",
+								":admin_bank_id"
+							],
+							"variable": [
+								{
+									"key": "admin_bank_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Contact",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/admin_banks/:admin_bank_id",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"admin_banks",
+								":admin_bank_id"
+							],
+							"variable": [
+								{
+									"key": "admin_bank_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Banks",
+			"item": [
+				{
+					"name": "All Bank Admin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASEURL}}/banks",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"banks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single Admin Bank",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASEURL}}/banks/:bank_id",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"banks",
+								":bank_id"
+							],
+							"variable": [
+								{
+									"key": "bank_id",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2F1dGgvcmVmcmVzaCIsImlhdCI6MTY3NTA1ODU2OCwiZXhwIjoxNjc1MDcyNjAxLCJuYmYiOjE2NzUwNjkwMDEsImp0aSI6IkJhV1VsTjBMaUJBb0REWFAiLCJzdWIiOiIxMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.qUdulKoISGHm-vHBcxNkqp7npcwfftcsqoMkvOWCKxU",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.request.upsertHeader({",
+					"    key: \"Accept\",",
+					"    value: \"application/json\"",
+					"});",
+					"",
+					"pm.request.upsertHeader({",
+					"    key: \"Content-Type\",",
+					"    value: \"application/json\"",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASEURL",
+			"value": "localhost:8000/api",
+			"type": "default"
+		},
+		{
+			"key": "USER_ID",
+			"value": "11",
+			"type": "default"
+		}
+	]
+}
